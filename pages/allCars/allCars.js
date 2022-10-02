@@ -1,4 +1,4 @@
-let CARS_URL = "http://localhost:8080/api/cars";
+let CARS_URL = "http://localhost:8080/api/cars/";
 
 let router;
 

@@ -8,6 +8,7 @@ import { initNavigate } from "./pages/navigate/navigate.js"
 import { initUsers } from "./pages/users/users.js"
 import { initFindUser } from "./pages/findUser/findUser.js"
 import {initAllCars} from "./pages/allCars/allCars.js"
+import { initFindCar } from "./pages/findCar/findCar.js"
 
 
 window.addEventListener("load", async () => {
@@ -17,6 +18,7 @@ window.addEventListener("load", async () => {
   const templateNavigate = await loadTemplate("./pages/navigate/navigate.html")
   const templateAllCars = await loadTemplate("./pages/allCars/allCars.html")
   const templateAddCar = await loadTemplate("./pages/addCar/addCar.html")
+  const templateFindCar = await loadTemplate("./pages/findCar/findCar.html")
   adjustForMissingHash()
 
 
@@ -55,6 +57,10 @@ window.addEventListener("load", async () => {
       },
       "/addCar": () => {
         renderTemplate(templateAddCar, "content")
+      },
+      "/findCar": (match) => {
+        renderTemplate(templateFindCar, "content")
+        initFindCar(match)
       },
       "/show-match": (match) => document.getElementById("content").innerHTML = `<pre>${JSON.stringify(match, null, 2)}</pre>`
     })
